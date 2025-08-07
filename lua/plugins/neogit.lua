@@ -7,6 +7,7 @@ return {
     },
     version = "*",
     lazy = true,
+    cmd = { "Neogit" },
     keys = {
         { "<leader>G", vim.cmd.Neogit, desc = "Open Neogit" },
     },
