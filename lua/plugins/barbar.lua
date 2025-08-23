@@ -18,6 +18,17 @@ return {
                 filetype = {
                     enabled = false,
                 },
+                separator = {
+                    left = "",
+                    right = "",
+                },
+                separator_at_end = false,
+                inactive = {
+                    separator = {
+                        left = "",
+                        right = "",
+                    },
+                },
             },
         })
 
@@ -35,7 +46,6 @@ return {
         vim.api.nvim_set_hl(0, "BufferCurrentIndex", { fg = colors.orange, bg = colors.bg })
         vim.api.nvim_set_hl(0, "BufferCurrentMod", { fg = colors.green, bg = colors.bg })
         vim.api.nvim_set_hl(0, "BufferCurrentModBtn", { fg = colors.white, bg = colors.bg })
-        vim.api.nvim_set_hl(0, "BufferCurrentSign", { bg = colors.bg })
 
         vim.api.nvim_set_hl(0, "BufferVisibleIndex", { fg = colors.orange, bg = colors.tabline_default })
         vim.api.nvim_set_hl(0, "BufferVisibleMod", { fg = colors.gray, bg = colors.tabline_default })
