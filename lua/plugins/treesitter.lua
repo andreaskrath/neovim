@@ -27,6 +27,7 @@ return {
 
                 "toml",
                 "json",
+                "json5",
                 "just",
                 "dockerfile",
                 "gitcommit",
