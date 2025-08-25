@@ -42,5 +42,97 @@ return {
                 console = 'integratedTerminal',
             },
         }
+
+        dap.adapters.codelldb = {
+            type = 'server',
+            port = "${port}",
+            executable = {
+                command = 'codelldb',
+                args = { "--port", "${port}" },
+            }
+        }
+
+        dap.configurations.rust = {
+            {
+                name = "Launch main",
+                type = "codelldb",
+                request = "launch",
+                program = function()
+                    -- Build the project first
+                    vim.fn.system('cargo build')
+                    -- Get the binary name from Cargo.toml or use workspace folder name
+                    local cwd = vim.fn.getcwd()
+                    local workspace_name = vim.fn.fnamemodify(cwd, ':t')
+                    return cwd .. '/target/debug/' .. workspace_name
+                end,
+                cwd = '${workspaceFolder}',
+                stopOnEntry = false,
+                args = {},
+                runInTerminal = false,
+                sourceLanguages = { "rust" },
+            },
+            {
+                name = "Launch file",
+                type = "codelldb",
+                request = "launch",
+                program = function()
+                    vim.fn.system('cargo build')
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+                end,
+                cwd = '${workspaceFolder}',
+                stopOnEntry = false,
+                args = {},
+                runInTerminal = false,
+                sourceLanguages = { "rust" },
+            },
+            {
+                name = "Launch with args",
+                type = "codelldb",
+                request = "launch",
+                program = function()
+                    vim.fn.system('cargo build')
+                    local cwd = vim.fn.getcwd()
+                    local workspace_name = vim.fn.fnamemodify(cwd, ':t')
+                    return cwd .. '/target/debug/' .. workspace_name
+                end,
+                cwd = '${workspaceFolder}',
+                stopOnEntry = false,
+                args = function()
+                    local args_string = vim.fn.input('Arguments: ')
+                    return vim.split(args_string, " ")
+                end,
+                runInTerminal = false,
+                sourceLanguages = { "rust" },
+            },
+            {
+                name = "Debug tests",
+                type = "codelldb",
+                request = "launch",
+                program = function()
+                    -- Build tests
+                    vim.fn.system('cargo test --no-run')
+                    -- Find the test executable
+                    local output = vim.fn.system(
+                        "cargo test --no-run --message-format=json 2>/dev/null | jq -r 'select(.executable != null) | .executable' | head -1")
+                    return vim.fn.trim(output)
+                end,
+                cwd = '${workspaceFolder}',
+                stopOnEntry = false,
+                args = {},
+                runInTerminal = false,
+                sourceLanguages = { "rust" },
+            },
+            {
+                name = "Attach to process",
+                type = "codelldb",
+                request = "attach",
+                pid = function()
+                    return require('dap.utils').pick_process()
+                end,
+                cwd = '${workspaceFolder}',
+                stopOnEntry = false,
+                sourceLanguages = { "rust" },
+            },
+        }
     end
 }
