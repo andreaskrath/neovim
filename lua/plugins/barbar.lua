@@ -1,5 +1,5 @@
 return {
-    'romgrk/barbar.nvim',
+    "romgrk/barbar.nvim",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
@@ -8,7 +8,7 @@ return {
         vim.g.barbar_auto_setup = false
     end,
     config = function()
-        require('barbar').setup({
+        require("barbar").setup({
             animation = false,
             clickable = false,
             highlight_visible = true,
