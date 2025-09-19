@@ -25,9 +25,6 @@ return {
                 },
             },
         },
-        signature = {
-            enabled = true,
-        },
         cmdline = {
             keymap = {
                 preset = "inherit",
