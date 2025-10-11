@@ -67,6 +67,12 @@ return {
                 end,
                 cwd = '${workspaceFolder}',
                 stopOnEntry = false,
+                skipFiles = {
+                    "/rustc/**",
+                    "~/.rustup/**",
+                    "~/.cargo/registry/**",
+                },
+                justMyCode = true,
                 args = {},
                 runInTerminal = false,
                 sourceLanguages = { "rust" },
@@ -81,6 +87,12 @@ return {
                 end,
                 cwd = '${workspaceFolder}',
                 stopOnEntry = false,
+                skipFiles = {
+                    "/rustc/**",
+                    "~/.rustup/**",
+                    "~/.cargo/registry/**",
+                },
+                justMyCode = true,
                 args = {},
                 runInTerminal = false,
                 sourceLanguages = { "rust" },
@@ -97,6 +109,12 @@ return {
                 end,
                 cwd = '${workspaceFolder}',
                 stopOnEntry = false,
+                skipFiles = {
+                    "/rustc/**",
+                    "~/.rustup/**",
+                    "~/.cargo/registry/**",
+                },
+                justMyCode = true,
                 args = function()
                     local args_string = vim.fn.input('Arguments: ')
                     return vim.split(args_string, " ")
@@ -118,6 +136,12 @@ return {
                 end,
                 cwd = '${workspaceFolder}',
                 stopOnEntry = false,
+                skipFiles = {
+                    "/rustc/**",
+                    "~/.rustup/**",
+                    "~/.cargo/registry/**",
+                },
+                justMyCode = true,
                 args = {},
                 runInTerminal = false,
                 sourceLanguages = { "rust" },
@@ -130,6 +154,12 @@ return {
                     return require('dap.utils').pick_process()
                 end,
                 cwd = '${workspaceFolder}',
+                skipFiles = {
+                    "/rustc/**",
+                    "~/.rustup/**",
+                    "~/.cargo/registry/**",
+                },
+                justMyCode = true,
                 stopOnEntry = false,
                 sourceLanguages = { "rust" },
             },
