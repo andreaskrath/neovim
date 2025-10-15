@@ -15,18 +15,10 @@ return {
                         -- Note: elements are displayed in opposite order
                         -- Meaning console is right, scopes is left
                         { id = "console", size = 0.5 },
-                        { id = "scopes",  size = 0.5 },
+                        { id = "watches", size = 0.5 },
                     },
                     position = "bottom",
                     size = 20,
-                },
-                {
-                    elements = {
-                        { id = "stacks",  size = 0.5 },
-                        { id = "watches", size = 0.5 },
-                    },
-                    position = "left",
-                    size = 50,
                 },
             },
         })
