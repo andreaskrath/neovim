@@ -78,26 +78,6 @@ return {
                 sourceLanguages = { "rust" },
             },
             {
-                name = "Launch file",
-                type = "codelldb",
-                request = "launch",
-                program = function()
-                    vim.fn.system('cargo build')
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
-                end,
-                cwd = '${workspaceFolder}',
-                stopOnEntry = false,
-                skipFiles = {
-                    "/rustc/**",
-                    "~/.rustup/**",
-                    "~/.cargo/registry/**",
-                },
-                justMyCode = true,
-                args = {},
-                runInTerminal = false,
-                sourceLanguages = { "rust" },
-            },
-            {
                 name = "Launch with args",
                 type = "codelldb",
                 request = "launch",
@@ -144,23 +124,6 @@ return {
                 justMyCode = true,
                 args = {},
                 runInTerminal = false,
-                sourceLanguages = { "rust" },
-            },
-            {
-                name = "Attach to process",
-                type = "codelldb",
-                request = "attach",
-                pid = function()
-                    return require('dap.utils').pick_process()
-                end,
-                cwd = '${workspaceFolder}',
-                skipFiles = {
-                    "/rustc/**",
-                    "~/.rustup/**",
-                    "~/.cargo/registry/**",
-                },
-                justMyCode = true,
-                stopOnEntry = false,
                 sourceLanguages = { "rust" },
             },
         }
