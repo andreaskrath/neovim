@@ -52,7 +52,8 @@ return {
         },
     },
     config = function()
-        require('telescope').setup({
+        local telescope = require("telescope")
+        telescope.setup({
             defaults = {
                 layout_config = {
                     horizontal = {
@@ -75,8 +76,8 @@ return {
         })
 
         -- Load extensions
-        require('telescope').load_extension('file_browser')
-        require('telescope').load_extension('ui-select')
+        telescope.load_extension('file_browser')
+        telescope.load_extension('ui-select')
 
         -- Set highlight groups
         local colors = {
