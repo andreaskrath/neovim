@@ -52,7 +52,7 @@ vim.lsp.config("rust_analyzer", {
     },
 })
 
-vim.lsp.enable({ "rust_analyzer", "lua_ls", "gopls", "ruff", "taplo", "ts_ls", "svelte", "pyright" })
+vim.lsp.enable({ "rust_analyzer", "lua_ls", "gopls", "ruff", "taplo", "ts_ls", "svelte", "pyright", "nil_ls" })
 
 vim.diagnostic.config({
     signs = false
