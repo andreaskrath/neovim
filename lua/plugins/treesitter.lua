@@ -47,6 +47,8 @@ return {
                 "python",
 
                 "bash",
+
+                "cooklang",
             },
             highlight = {
                 enable = true,
