@@ -14,6 +14,7 @@ return {
     config = function()
         require("neogit").setup {
             remember_settings = true,
+            use_per_project_settings = false,
             disable_hint = true,
             fetch_after_checkout = false,
             status = {
