@@ -50,3 +50,6 @@ vim.opt.termguicolors = true
 
 -- Allow yanking outside of neovim
 vim.opt.clipboard = "unnamedplus"
+
+-- Highlight the cursor line
+vim.opt.cursorline = true
