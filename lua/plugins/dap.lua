@@ -3,7 +3,6 @@ return {
     dependencies = {
         "rcarriga/nvim-dap-ui"
     },
-    version = "0.10.0",
     lazy = true,
     keys = {
         { "<C-S-j>", vim.cmd.DapStepOver,         desc = "Step over (down)" },

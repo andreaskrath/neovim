@@ -1,7 +1,8 @@
 return {
     "saghen/blink.cmp",
     dependencies = { "rafamadriz/friendly-snippets" },
-    version = "1.6.0",
+    -- main is the unreleased v2 rewrite, the 1.x releases are what this config is written for.
+    version = "1.*",
     opts = {
         keymap = {
             preset = "none",
